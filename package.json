@@ -3,12 +3,30 @@
   "description": "Adds vscode style syntax highlighting to code blocks in markdown files using shiki.",
   "version": "1.0.0",
   "author": "Elvis Liao",
+  "scripts": {
+    "build": "babel src --out-dir ./dist --extensions \".ts\" --ignore \"**/__tests__\"",
+    "prepare": "cross-env NODE_ENV=production npm run build",
+    "watch": "babel -w src --out-dir . --ignore \"**/__tests__\""
+  },
   "bugs": {
     "url": "https://github.com/l123wx/gatsby-remark-vscode-shiki/issues"
   },
   "dependencies": {
+    "@babel/runtime": "^7.20.13",
     "shiki": "^0.14.1",
     "unist-util-visit": "^2.0.3"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.20.7",
+    "@babel/core": "^7.20.12",
+    "@babel/preset-typescript": "^7.21.0",
+    "babel-preset-gatsby-package": "^3.8.0",
+    "cross-env": "^7.0.3",
+    "mdast": "^3.0.0"
+  },
+  "peerDependencies": {
+    "gatsby": "^5.0.0-next",
+    "shiki": "^0.14.1"
   },
   "homepage": "https://github.com/l123wx/gatsby-remark-vscode-shiki",
   "keywords": [
